@@ -3,11 +3,14 @@ using System.Linq;
 using System.Web.Http;
 using WebApiPractice.Models;
 
-namespace WebApiPractice.Controllers {
-    public class ProductsController : ApiController {
+namespace WebApiPractice.Controllers
+{
+    public class ProductsController : ApiController
+    {
         IEnumerable<Product> _products;
 
-        public ProductsController() {
+        public ProductsController()
+        {
             _products = new[] {
                 new Product { Id = 1, Name = "Tomato Soup", Category = "Groceries", Price = 1 },
                 new Product { Id = 2, Name = "Yo-yo", Category = "Toys", Price = 3.75M },
@@ -15,22 +18,26 @@ namespace WebApiPractice.Controllers {
             };
         }
 
-        public ProductsController( IEnumerable<Product> products ) {
+        public ProductsController(IEnumerable<Product> products)
+        {
             _products = products;
         }
 
-        public IEnumerable<Product> GetAllProducts() {
+        public IEnumerable<Product> GetAllProducts()
+        {
             return _products;
         }
 
-        public IHttpActionResult GetProduct( int id ) {
-            var product = _products.FirstOrDefault( p => p.Id == id );
+        public IHttpActionResult GetProduct(int id)
+        {
+            var product = _products.FirstOrDefault(p => p.Id == id);
 
-            if ( product == null ) {
+            if (product == null)
+            {
                 return NotFound();
             }
 
-            return Ok( product );
+            return Ok(product);
         }
     }
 }
