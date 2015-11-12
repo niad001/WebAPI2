@@ -48,7 +48,7 @@ namespace WebApiPractice.Tests
         }
 
         [Fact]
-        public void GetAllProducts_TakesLessThanOrEqualToOneSecond()
+        public void GetAllProducts_TakesTakesOneSecondOrLess()
         {
             Timer callTimer = new Timer();
 
@@ -61,7 +61,7 @@ namespace WebApiPractice.Tests
 
         [Theory]
         [RangeData(1, 4)]
-        public void GetProduct_TakesLessThanOrEqualToOneSecond(int id)
+        public void GetProduct_TakesOneSecondOrLess(int id)
         {
             Timer callTimer = new Timer();
 
